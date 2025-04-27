@@ -5,6 +5,8 @@
 #include "strpool.h"
 #include "ast.h"
 #include "process.h"
+#include "pygen.h"
+
 void yyerror(const char *s);
 extern int yylex();
 AST PROGRAM; // make it global, so main() can get it.
@@ -152,6 +154,8 @@ void yyerror(const char *s) {
 int main(void) {
     if (yyparse() == 0) {
         process(PROGRAM);
+	printf("\n\n==========PYTHON VERSION==========\n\n");
+	pygen(PROGRAM);
     } else {
         fprintf(stderr,"parsing failed!\n") ; 
     }

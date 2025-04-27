@@ -17,7 +17,10 @@ process.o: process.c process.h ast.h
 	gcc -c process.c
 
 cmm: cmm_parser.tab.c lex.yy.c ast.o process.o strpool.o
-	gcc -o cmm cmm_parser.tab.c lex.yy.c ast.o process.o strpool.o -lfl
+	gcc -o cmm cmm_parser.tab.c lex.yy.c ast.o process.o strpool.o pygen.c -lfl
+
+pygen: cmm_parser.tab.c lex.yy.c ast.o process.o strpool.o pygen.c pygen.h
+	gcc -o pygen cmm_parser.tab.c lex.yy.c ast.o process.o strpool.o pygen.c -lfl
 
 clean:
-	@rm -f cmm cmm_parser.tab.* lex.yy.c ast.o process.o strpool.o
+	@rm -f cmm pygen cmm_parser.tab.* lex.yy.c ast.o process.o strpool.o

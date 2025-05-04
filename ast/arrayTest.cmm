@@ -1,0 +1,9 @@
+int sum(int nums[5]) {
+  int total = 0;
+  int i = 0;
+  while (i < 5) {
+    total = total + nums[i];
+    i = i + 1;
+  }
+  return total;
+}

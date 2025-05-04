@@ -1,0 +1,12 @@
+int unary() {
+  int x = 5;
+  int y = -x;
+  boolean a = true;
+  boolean b = !a;
+  ++x;
+  x++;
+  --x;
+  x--;
+  return x;
+}
+
